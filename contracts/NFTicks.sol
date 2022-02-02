@@ -13,6 +13,7 @@ contract NFTicks is ERC721URIStorage{
 
     uint256 public totalTickets = 10;
     uint256 public availableTickets = 10;
+    uint256 public mintPrice = 8000000000000000;
     mapping(address => uint256) public holderTokendIds; 
 
   constructor() ERC721("Events", "ENFT") payable {
@@ -24,8 +25,9 @@ contract NFTicks is ERC721URIStorage{
   function closeSale() public {
     saleIsActive = false;
   }
-  function mint() public {
+  function mint() public payable {
     require(availableTickets > 0, "Tickets Sold Out");
+    require(msg.value >= mintPrice, "Insufficient Funds");
     string[3] memory svg;
     svg[0] =  '<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><text y="50">';
     svg[1] = Strings.toString(_tokenIds.current());
