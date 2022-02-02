@@ -36,11 +36,11 @@ contract NFTicks is ERC721URIStorage{
             bytes(
                 string(
                     abi.encodePacked(
-                        '{ "name": "NFTix #',
+                        '{ "name": "ENFT #',
                         Strings.toString(_tokenIds.current()),
                         '", "description": "A NFT-powered ticketing system", ',
                         '"traits": [{ "trait_type": "Checked In", "value": "false" }, { "trait_type": "Purchased", "value": "true" }], ',
-                        '"image": '"data:image/svg+xml;base64,', encodedImage"' }'
+                        '"image": "data:image/svg+xml;base64,', encodedImage,'" }'
                     )
                 )
             )
@@ -49,7 +49,7 @@ contract NFTicks is ERC721URIStorage{
         string memory tokenURI = string(
             abi.encodePacked("data:application/json;base64,", json)
         );
-    console.log(encodedImage);
+    console.log(tokenURI);
     _safeMint(msg.sender, _tokenIds.current());
     _setTokenURI(_tokenIds.current(), tokenURI);
     _tokenIds.increment();
