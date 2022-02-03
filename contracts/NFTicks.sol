@@ -63,7 +63,7 @@ contract NFTicks is ERC721URIStorage, Ownable{
                     abi.encodePacked(
                         '{ "name": "ENFT #',
                         Strings.toString(_tokenIds.current()),
-                        '", "description": "A NFT-powered ticketing system", ',
+                        '", "description": "A NFT-powered ticketing system for Web 3 Bridge 2022 Townhall meetting", ',
                         '"traits": [{ "trait_type": "Checked In", "value": "false" }, { "trait_type": "Purchased", "value": "true" }], ',
                         '"image": "ipfs://QmUuXqMvJckFhfoEaLFMEfum6roqgrjQedoRuitizw3kwQ" }'
                     )
@@ -77,9 +77,10 @@ contract NFTicks is ERC721URIStorage, Ownable{
     console.log(tokenURI);
     _safeMint(msg.sender, _tokenIds.current());
     _setTokenURI(_tokenIds.current(), tokenURI);
+    holderTokendIds[msg.sender].push(_tokenIds.current());
     _tokenIds.increment();
     availableTickets -= 1;
-    holderTokendIds[msg.sender].push(_tokenIds.current());
+    
   }
 
   function getAvailableTickets() public view returns(uint) {
