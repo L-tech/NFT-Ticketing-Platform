@@ -50,7 +50,7 @@ contract NFTicks is ERC721URIStorage, Ownable{
         string memory tokenURI = string(
             abi.encodePacked("data:application/json;base64,", json)
         );
-        _setTokenURI(_tokenIds.current(), tokenURI);
+        _setTokenURI(tokenId, tokenURI);
   }
 
   function mint() public payable {
