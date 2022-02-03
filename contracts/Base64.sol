@@ -8,7 +8,6 @@ pragma solidity >=0.8.0 <0.9.0;
 library Base64 {
     bytes internal constant TABLE =
         "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
-
     /// @notice Encodes some bytes to the base64 representation
     function encode(bytes memory data) internal pure returns (string memory) {
         uint256 len = data.length;
