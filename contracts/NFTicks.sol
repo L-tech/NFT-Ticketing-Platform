@@ -79,8 +79,7 @@ contract NFTicks is ERC721URIStorage, Ownable{
     _setTokenURI(_tokenIds.current(), tokenURI);
     holderTokendIds[msg.sender].push(_tokenIds.current());
     _tokenIds.increment();
-    availableTickets -= 1;
-    
+    availableTickets -= 1;   
   }
 
   function getAvailableTickets() public view returns(uint) {
