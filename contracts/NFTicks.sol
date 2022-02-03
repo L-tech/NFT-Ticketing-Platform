@@ -95,6 +95,10 @@ contract NFTicks is ERC721URIStorage, Ownable{
       return holderTokendIds[_address].length > 0;
   }
 
+  function getTokenId(address _address) public view returns(uint256) {
+    return holderTokendIds[_address][0];
+  }
+
   // to support receiving ETH by default --
   receive() external payable {}
   fallback() external payable {}
