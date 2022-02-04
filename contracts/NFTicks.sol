@@ -14,7 +14,7 @@ contract NFTicks is ERC721URIStorage, Ownable{
     Counters.Counter private _tokenIds;
     uint256 public totalTickets = 60;
     uint256 public availableTickets = 60;
-    uint256 public mintPrice = 8000000000000000;
+    uint256 public mintPrice = 50000000000000000;
     mapping(address => uint256[]) public holderTokendIds; 
     mapping(address => bool) public checkIns;
 
